@@ -19,11 +19,11 @@
 #
 ---
 include:
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0
     shield: silikeys_left
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0
     shield: silikeys_right
-  - board: nice_nano_v2    
+  - board: nice_nano@2.0.0
     shield: silikeys_numbers
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0
     shield: settings_reset
