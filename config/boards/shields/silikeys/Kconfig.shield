@@ -1,0 +1,10 @@
+# No whitespace after the comma or in your part name!
+config SHIELD_SILIKEYS_LEFT
+    def_bool $(shields_list_contains,silikeys_left)
+
+# No whitespace after the comma or in your part name!
+config SHIELD_SILIKEYS_RIGHT
+    def_bool $(shields_list_contains,silikeys_right)
+
+config SHIELD_SILIKEYS_NUMBERS
+    def_bool $(shields_list_contains,silikeys_numbers)

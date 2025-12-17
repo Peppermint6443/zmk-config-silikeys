@@ -1,0 +1,19 @@
+# this one probably won't work on the first try, I'm going to have to mess with it
+
+if SHIELD_SILIKEYS_LEFT
+
+# Name must be less than 16 characters long!
+config ZMK_KEYBOARD_NAME
+    default "Silikeys"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_SILIKEYS_LEFT || SHIELD_SILIKEYS_RIGHT || SHIELD_SILIKEYS_NUMBERS
+
+config ZMK_SPLIT
+    default y
+
+endif
