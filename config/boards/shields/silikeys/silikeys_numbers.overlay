@@ -1,11 +1,5 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
-&default_transform { 
-    col-offset = <13>;
-};
-
-#include <dt-bindings/zmk/matrix_transform.h>
-
 / {
     chosen {
         zmk,kscan = &kscan0;
@@ -16,6 +10,7 @@
         compatible = "zmk,matrix-transform";
         columns = <5>;
         rows = <4>;
+        col-offset = <13>; 
 
         map = <
             RC(4,0) RC(3,0) RC(2,0) RC(1,0) RC(0,0)
@@ -28,7 +23,7 @@
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
-        diode-direction = "col2row"; // Change to "row2col" if diodes point the other way
+        diode-direction = "col2row"; 
 
         row-gpios
             = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
