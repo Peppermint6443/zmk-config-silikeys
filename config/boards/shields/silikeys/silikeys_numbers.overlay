@@ -2,11 +2,11 @@
 #include "silikeys.dtsi"
 
 &default_transform { 
-    col-offset = <6>;
+    col-offset = <13>;
 };
 
 
-kscan0: kscan_0 {
+&kscan_0 {
     compatible = "zmk,kscan-gpio-matrix";
     label = "KSCAN";
     diode-direction = "col2row"; 
