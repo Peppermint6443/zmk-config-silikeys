@@ -6,23 +6,37 @@
 };
 
 
+#include <dt-bindings/zmk/matrix_transform.h>
+#include "silikeys.dtsi"
+
+&default_transform { 
+    col-offset = <13>;
+};
+
 &kscan0 {
     compatible = "zmk,kscan-gpio-matrix";
     label = "KSCAN";
-    diode-direction = "col2row"; 
+    
+    // Changing to row2col because software rows/cols are swapped 
+    // relative to the physical diode orientation.
+    diode-direction = "row2col"; 
 
+    // Software Rows (The physical 4-pin group)
+    // These are now the "Drivers" (Outputs)
+    row-gpios
+        = <&pro_micro 2 GPIO_ACTIVE_HIGH>
+        , <&pro_micro 7 GPIO_ACTIVE_HIGH>
+        , <&pro_micro 6 GPIO_ACTIVE_HIGH>
+        , <&pro_micro 5 GPIO_ACTIVE_HIGH>
+        ;
+
+    // Software Columns (The physical 5-pin group)
+    // These are now the "Listeners" (Inputs) and need the Pull-Downs
     col-gpios
         = <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         , <&pro_micro 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         , <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         , <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         , <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        ;
-
-    row-gpios
-        = <&pro_micro 2 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 7 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 6 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 5 GPIO_ACTIVE_HIGH>
         ;
 };
