@@ -7,7 +7,7 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main # trying the main branch again - v0.3.0
+      revision: v0.3.0 # main doesn't work for some reason, pinning to v0.3.0 
       import: app/west.yml
   self:
     path: config
